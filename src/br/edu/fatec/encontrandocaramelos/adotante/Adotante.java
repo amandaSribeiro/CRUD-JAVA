@@ -1,24 +1,19 @@
-package br.edu.fatec.crud;
+package br.edu.fatec.encontrandocaramelos.adotante;
 
-public class Ong {
+public class Adotante {
+	
+	//ATRIBUTOS
 	private String nome;
-	private String responsavel;
 	private String endereco;
 	private int telefone;
 	private String email;
-	private Boolean ajuda;
+	
 	
 	public String getNome() {
 		return nome;
 	}
 	public void setNome(String nome) {
 		this.nome = nome;
-	}
-	public String getResponsavel() {
-		return responsavel;
-	}
-	public void setResponsavel(String responsavel) {
-		this.responsavel = responsavel;
 	}
 	public String getEndereco() {
 		return endereco;
@@ -38,14 +33,12 @@ public class Ong {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public Boolean getAjuda() {
-		return ajuda;
-	}
-	public void setAjuda(Boolean ajuda) {
-		this.ajuda = ajuda;
-	}
+	
+	public void imprimirDados() {
+		System.out.println("Nome: " + getNome());
+		System.out.println("Email: " + getEmail());
+		System.out.println("Telefone: " + getTelefone());
+		System.out.println("Endereço: " + getEndereco() + "\n");
+		}
 
-	
-	
-	
 }
