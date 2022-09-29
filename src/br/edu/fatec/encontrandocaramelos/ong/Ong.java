@@ -1,12 +1,14 @@
 package br.edu.fatec.encontrandocaramelos.ong;
 
+import br.edu.fatec.encontrandocaramelos.ong.pet.Pet;
+
 public class Ong {
 	
 	//ATRIBUTOS
 	private String nome;
 	private String responsavel;
 	private String endereco;
-	private int telefone;
+	private String telefone;
 	private String email;
 	private Boolean ajuda;
 
@@ -34,9 +36,7 @@ public class Ong {
 	public void showPet() {
 		for (Pet pet : this.pets) {
 			if (pet != null) {
-				System.out.println("Nome: " + pet.getNome());
-				System.out.println("Idade: " + pet.getIdade());
-				System.out.println("Sexo: " + pet.getSexo());
+				pet.imprimirDados();
 			}
 		}
 	}
@@ -45,9 +45,10 @@ public class Ong {
 	public void removePet(int id) {
 		Pet[] newPet = new Pet[10];
 		for (int i = 0; i < this.pets.length; i++) {
-			if (this.pets[i].getId() != id) {
-				int total = newPet.length;
+			if (this.pets[i] != null && this.pets[i].getId() != id) {
+				int total = 0;
 				newPet[total] = this.pets[i];
+				total ++;
 			}
 		}
 		this.pets = newPet;
@@ -55,10 +56,11 @@ public class Ong {
 
 	//METODO QUE ATUALIZA UM PET CADASTRADO
 	public void updatePet(int id, Pet petAtualizado) {
-		for (Pet pet : this.pets) {
-			if(pet.getId() == id) {
-				pet = petAtualizado;
+		for (int i = 0; i < this.pets.length; i++) {
+			if(pets[i].getId() == id && pets[i] != null) {
+				pets[i] = petAtualizado;
 				System.out.println("Seu pet foi atualizado");
+				return;
 			}
 		}
 		System.out.println("O id do pet não foi encontrado");
@@ -92,11 +94,11 @@ public class Ong {
 	}
 
 	//GETTERS E SETTERS TELEFONE
-	public int getTelefone() {
+	public String getTelefone() {
 		return telefone;
 	}
 
-	public void setTelefone(int telefone) {
+	public void setTelefone(String telefone) {
 		this.telefone = telefone;
 	}
 	
@@ -110,9 +112,15 @@ public class Ong {
 	}
 
 	//GETTERS E SETTERS AJUDA
-	public Boolean getAjuda() {
-		return ajuda;
-	}
+	public String getAjuda() {
+        String resposta;
+        if (ajuda == true){
+            resposta = "Sim";
+        }else {
+            resposta = "Nao";
+        }
+        return resposta;
+    }
 
 	public void setAjuda(Boolean ajuda) {
 		this.ajuda = ajuda;

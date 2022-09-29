@@ -5,7 +5,7 @@ public class Adotante {
 	//ATRIBUTOS
 	private String nome;
 	private String endereco;
-	private int telefone;
+	private String telefone;
 	private String email;
 	
 	
@@ -21,10 +21,10 @@ public class Adotante {
 	public void setEndereco(String endereco) {
 		this.endereco = endereco;
 	}
-	public int getTelefone() {
+	public String getTelefone() {
 		return telefone;
 	}
-	public void setTelefone(int telefone) {
+	public void setTelefone(String telefone) {
 		this.telefone = telefone;
 	}
 	public String getEmail() {
