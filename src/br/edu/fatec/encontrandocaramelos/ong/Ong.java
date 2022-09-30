@@ -126,6 +126,7 @@ public class Ong {
 		this.ajuda = ajuda;
 	}
 
+	//MÉTODO IMPRIMIR DADOS
 	public void imprimirDados() {
 		System.out.println("Nome da Ong: " + getNome());
 		System.out.println("Nome do Responsável: " + getResponsavel());

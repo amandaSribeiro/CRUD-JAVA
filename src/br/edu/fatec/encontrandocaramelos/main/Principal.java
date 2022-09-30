@@ -82,6 +82,8 @@ public class Principal {
 						System.out.println("Digite id: ");
 						pet.setId(input.nextInt());
 						System.out.println("Nome: ");
+						System.out.println("Espécie: ");
+						pet.setEspecie(input.next());
 						pet.setNome(input.next());
 						System.out.println("Raça: ");
 						pet.setRaca(input.next());
@@ -115,6 +117,8 @@ public class Principal {
 						petAtualizado.setId(id);
 						System.out.println("Nome: ");
 						petAtualizado.setNome(input.next());
+						System.out.println("Espécie: ");
+						petAtualizado.setEspecie(input.next());
 						System.out.println("Raça: ");
 						petAtualizado.setRaca(input.next());
 						System.out.println("Cor: ");
