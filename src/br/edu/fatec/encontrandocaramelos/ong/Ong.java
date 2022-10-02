@@ -1,26 +1,26 @@
 package br.edu.fatec.encontrandocaramelos.ong;
 
+import java.util.Arrays;
 import br.edu.fatec.encontrandocaramelos.ong.pet.Pet;
 
 public class Ong {
 	
-	//ATRIBUTOS
+	// ATRIBUTOS
 	private String nome;
 	private String responsavel;
 	private String endereco;
 	private String telefone;
 	private String email;
 	private Boolean ajuda;
-
-	//VETOR PETS
+	
+	// VETOR PETS
 	private Pet[] pets = new Pet[10];
 
-	
 	public void setPet(Pet[] pets) {
 		this.pets = pets;
 	}
 
-	//METODO DE ADICIONAR OS PETS NO VETOR
+	// METODO DE ADICIONAR OS PETS NO VETOR
 	public void addPet(Pet pet) {
 		for (int i = 0; i < this.pets.length; i++) {
 			if (this.pets[i] == null) {
@@ -28,11 +28,10 @@ public class Ong {
 				return;
 			}
 		}
-		
 		System.out.println("Pet está cheio! Você não pode cadastrar mais pets!");
 	}
 
-	//METODO QUE APRESENTA OS PETS CADASTRADOS 
+	// METODO QUE APRESENTA OS PETS CADASTRADOS
 	public void showPet() {
 		for (Pet pet : this.pets) {
 			if (pet != null) {
@@ -41,23 +40,23 @@ public class Ong {
 		}
 	}
 
-	//METODO QUE REMOVE UM PET CADASTRADO
+	// METODO QUE REMOVE UM PET CADASTRADO
 	public void removePet(int id) {
 		Pet[] newPet = new Pet[10];
 		for (int i = 0; i < this.pets.length; i++) {
 			if (this.pets[i] != null && this.pets[i].getId() != id) {
 				int total = 0;
 				newPet[total] = this.pets[i];
-				total ++;
+				total++;
 			}
 		}
 		this.pets = newPet;
 	}
 
-	//METODO QUE ATUALIZA UM PET CADASTRADO
+	// METODO QUE ATUALIZA UM PET CADASTRADO
 	public void updatePet(int id, Pet petAtualizado) {
 		for (int i = 0; i < this.pets.length; i++) {
-			if(pets[i].getId() == id && pets[i] != null) {
+			if (pets[i].getId() == id && pets[i] != null) {
 				pets[i] = petAtualizado;
 				System.out.println("Seu pet foi atualizado");
 				return;
@@ -65,8 +64,8 @@ public class Ong {
 		}
 		System.out.println("O id do pet não foi encontrado");
 	}
-	
-	//GETTERS E SETTERS NOME
+
+	// GETTERS E SETTERS NOME
 	public String getNome() {
 		return nome;
 	}
@@ -75,7 +74,7 @@ public class Ong {
 		this.nome = nome;
 	}
 
-	//GETTERS E SETTERS RESPONSAVEL
+	// GETTERS E SETTERS RESPONSAVEL
 	public String getResponsavel() {
 		return responsavel;
 	}
@@ -84,7 +83,7 @@ public class Ong {
 		this.responsavel = responsavel;
 	}
 
-	//GETTERS E SETTERS ENDERECO
+	// GETTERS E SETTERS ENDERECO
 	public String getEndereco() {
 		return endereco;
 	}
@@ -93,7 +92,7 @@ public class Ong {
 		this.endereco = endereco;
 	}
 
-	//GETTERS E SETTERS TELEFONE
+	// GETTERS E SETTERS TELEFONE
 	public String getTelefone() {
 		return telefone;
 	}
@@ -101,8 +100,8 @@ public class Ong {
 	public void setTelefone(String telefone) {
 		this.telefone = telefone;
 	}
-	
-	//GETTERS E SETTERS EMAIL
+
+	// GETTERS E SETTERS EMAIL
 	public String getEmail() {
 		return email;
 	}
@@ -111,22 +110,26 @@ public class Ong {
 		this.email = email;
 	}
 
-	//GETTERS E SETTERS AJUDA
+	// GETTERS E SETTERS AJUDA
 	public String getAjuda() {
-        String resposta;
-        if (ajuda == true){
-            resposta = "Sim";
-        }else {
-            resposta = "Nao";
-        }
-        return resposta;
-    }
+		String resposta;
+		if (this.ajuda != null) {
+			if (ajuda == true) {
+				resposta = "Sim";
+			} else {
+				resposta = "Nao";
+			}
+			return resposta;
+		}
+		resposta = "";
+		return resposta;
+	}
 
 	public void setAjuda(Boolean ajuda) {
 		this.ajuda = ajuda;
 	}
 
-	//MÉTODO IMPRIMIR DADOS
+	// MÉTODO IMPRIMIR DADOS
 	public void imprimirDados() {
 		System.out.println("Nome da Ong: " + getNome());
 		System.out.println("Nome do Responsável: " + getResponsavel());
@@ -134,6 +137,19 @@ public class Ong {
 		System.out.println("Telefone: " + getTelefone());
 		System.out.println("Email: " + getEmail());
 		System.out.println("Ajuda: " + getAjuda() + "\n");
-		}
+	}
 
+	// METODO VERIFICAR RESPOSTAS BOOLEAN
+	public Boolean verificarResp(String resp) {
+		String sim[] = { "Sim", "S", "sim", "s" };
+		String nao[] = { "Nao", "Não", "N", "nao", "não", "n" };
+		if (Arrays.asList(sim).contains(resp)) {
+			return true;
+		} else if (Arrays.asList(nao).contains(resp)) {
+			return false;
+		} else {
+			System.out.println("Resposta inválida! \n");
+			return null;
+		}
+	}
 }
